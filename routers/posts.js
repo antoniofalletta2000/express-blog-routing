@@ -66,7 +66,13 @@ router.patch("/:id", (req,res)=>{
 })
 //destroy
 router.delete("/:id", (req,res)=>{
-    res.send(`Delete a post with id ${req.params.id}`)
+    
+    const post= posts.find(post=>post.id===parseInt(req.params.id))
+    if(post){
+        res.json(post)
+    }else{
+        res.status(404).json({message:"Post not found"})
+    }
 })
 
 module.exports= router
