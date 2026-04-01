@@ -67,9 +67,10 @@ router.patch("/:id", (req,res)=>{
 //destroy
 router.delete("/:id", (req,res)=>{
     
-    const post= posts.find(post=>post.id===parseInt(req.params.id))
-    if(post){
-        res.json(post)
+    const index= posts.findIndex(post=>post.id===parseInt(req.params.id))
+    if(index !=-1 ){
+        const postDeleted=posts.splice(index,1)
+        res.json(postDeleted)
     }else{
         res.status(404).json({message:"Post not found"})
     }
