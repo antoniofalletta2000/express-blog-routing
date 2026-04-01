@@ -45,7 +45,12 @@ router.get("/", (req, res) => {
 })
 //show
 router.get("/:id", (req,res)=>{
-    res.send(`Udapte post with id ${req.params.id}`)
+    const post= posts.find(post=>post.id===parseInt(req.params.id))
+    if(post){
+        res.json(post)
+    }else{
+        res.status(404).json({message:"Post not found"})
+    }
 })
 //store
 router.post("/", (req,res)=>{
