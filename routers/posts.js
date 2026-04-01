@@ -58,11 +58,11 @@ router.post("/", (req,res)=>{
 })
 //update
 router.put("/:id", (req,res)=>{
-    res.send(`Udapte post with id ${req.params.id}`)
+    res.send(`Update post with id ${req.params.id}`)
 })
 //modify
 router.patch("/:id", (req,res)=>{
-    res.send(`Udapte post with id ${req.params.id}`)
+    res.send(`Update post with id ${req.params.id}`)
 })
 //destroy
 router.delete("/:id", (req,res)=>{
